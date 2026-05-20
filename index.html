@@ -88,12 +88,12 @@
        DATOS DE LA SEMANA — ACTUALIZAR CADA LUNES
     ============================================================== */
     const SEMANA = {
-      semana: "21–22 mayo",
-      updatedAt: "Martes 20 mayo · 10:00",
+      semana: "21–30 mayo",
+      updatedAt: "Martes 20 mayo · 13:58",
       kpis: {
         diaPico: { dia: "Jueves", eventos: 2 },
         minimoEquipos: { amplificacion: 2, torreHumo: 2 },
-        porConfirmar: 1
+        porConfirmar: 2
       },
       dias: [
         {
@@ -139,6 +139,23 @@
               operador: "Edgar / Daniel / Susan"
             }
           ]
+        },
+        {
+          dia: "Sábado",
+          fecha: "30 mayo",
+          esPico: false,
+          eventos: [
+            {
+              id: 4,
+              hora: "08:00",
+              duracion: null,
+              paquete: "Producción Sonido — Iyambae",
+              status: "pendiente-info",
+              equipos: ["Amplificación", "Karaoke interior"],
+              notas: "PA exterior: consola Soundcraft 12ch · 4 subs activos · 4 line arrays FBT · monitor KL15 · 2 mics inalámbrico. Interior: 2x KL15 · 2 mics · pantalla LED 4m² · contenido karaoke",
+              operador: "Edgar Tomas Hernandez"
+            }
+          ]
         }
       ],
       pendientes: [
@@ -156,6 +173,22 @@
           preguntas: [
             "¿Cuál es la dirección del evento Deluxe Corporativo?",
             "¿A qué hora termina el evento (duración aproximada)?"
+          ]
+        },
+        {
+          id: 2,
+          prioridad: "alta",
+          eventoId: 4,
+          paquete: "Producción Sonido — Iyambae",
+          dia: "Sábado 30 mayo",
+          falta: [
+            { campo: "Duración", detalle: "No especificada — no se puede confirmar disponibilidad de equipos" },
+            { campo: "Tipo de evento", detalle: "No corresponde a un paquete estándar — requiere definición" }
+          ],
+          impacto: "Sin duración no se puede confirmar si los equipos quedan disponibles para otros compromisos del fin de semana.",
+          preguntas: [
+            "¿A qué hora termina el evento en Iyambae?",
+            "¿Es producción propia o cliente externo? ¿Qué paquete aplica?"
           ]
         }
       ]
