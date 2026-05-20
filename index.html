@@ -88,27 +88,44 @@
        DATOS DE LA SEMANA — ACTUALIZAR CADA LUNES
     ============================================================== */
     const SEMANA = {
-      semana: "21–30 mayo",
-      updatedAt: "Martes 20 mayo · 13:58",
+      semana: "19–30 mayo",
+      updatedAt: "Martes 20 mayo · 14:30",
       kpis: {
-        diaPico: { dia: "Jueves", eventos: 2 },
+        diaPico: { dia: "Domingo", eventos: 3 },
         minimoEquipos: { amplificacion: 2, torreHumo: 2 },
-        porConfirmar: 2
+        porConfirmar: 7
       },
       dias: [
         {
+          dia: "Martes",
+          fecha: "19 mayo",
+          esPico: false,
+          eventos: [
+            {
+              id: 5,
+              hora: null,
+              duracion: null,
+              paquete: "Pack especial Hello Kitty",
+              status: "pendiente-info",
+              equipos: ["Amplificación"],
+              notas: "Alcancías · gafas · manillas",
+              operador: null
+            }
+          ]
+        },
+        {
           dia: "Jueves",
           fecha: "21 mayo",
-          esPico: true,
+          esPico: false,
           eventos: [
             {
               id: 1,
               hora: "15:00",
               duracion: null,
-              paquete: "Deluxe Corporativo",
+              paquete: "Deluxe adultos",
               status: "pendiente-info",
               equipos: ["Amplificación", "Torre + Humo"],
-              notas: "Empresa: Bruna Álvarez · Sin dirección",
+              notas: "Sonido completo · Trus 6 mts · 4 mts pantalla led · HRL · animación · maestro de ceremonia · Bruna Álvarez · Sin dirección",
               operador: "Bruno / Matías"
             },
             {
@@ -135,8 +152,62 @@
               paquete: "Corporativo — Grupo Peso",
               status: "confirmado",
               equipos: ["Amplificación"],
-              notas: "Video Resumen (Diego) · Pasando Okinawa",
+              notas: "Sonido · Video resumen · Pasando Okinawa",
               operador: "Edgar / Daniel / Susan"
+            }
+          ]
+        },
+        {
+          dia: "Sábado",
+          fecha: "23 mayo",
+          esPico: false,
+          eventos: [
+            {
+              id: 6,
+              hora: null,
+              duracion: null,
+              paquete: "Día flia. / Cofar",
+              status: "pendiente-info",
+              equipos: ["Amplificación"],
+              notas: "Pintacaritas · coloreado didáctico · HRL · juegos en piscina",
+              operador: null
+            }
+          ]
+        },
+        {
+          dia: "Domingo",
+          fecha: "24 mayo",
+          esPico: true,
+          eventos: [
+            {
+              id: 7,
+              hora: null,
+              duracion: null,
+              paquete: "Básico Cenicienta",
+              status: "pendiente-info",
+              equipos: ["Amplificación"],
+              notas: null,
+              operador: null
+            },
+            {
+              id: 8,
+              hora: null,
+              duracion: null,
+              paquete: "Día flia. / Cofar",
+              status: "pendiente-info",
+              equipos: ["Amplificación"],
+              notas: "Pintacaritas · coloreado didáctico · HRL · juegos en piscina · no repetir juegos",
+              operador: null
+            },
+            {
+              id: 9,
+              hora: null,
+              duracion: null,
+              paquete: "Toys Story",
+              status: "pendiente-info",
+              equipos: null,
+              notas: "Sin información aún",
+              operador: null
             }
           ]
         },
@@ -163,20 +234,53 @@
           id: 1,
           prioridad: "alta",
           eventoId: 1,
-          paquete: "Deluxe Corporativo",
+          paquete: "Deluxe adultos",
           dia: "Jueves 21 mayo",
           falta: [
             { campo: "Dirección", detalle: "No figura en la convocatoria" },
-            { campo: "Duración", detalle: "No especificada — afecta rotación de equipos" }
+            { campo: "Duración", detalle: "No especificada — afecta rotación con Show LED" }
           ],
-          impacto: "Sin dirección no se puede planificar traslado. Sin duración no se confirma si el equipo libera antes del cierre del Show LED (19:00).",
+          impacto: "Sin dirección no se puede planificar traslado. Sin duración no se confirma si el equipo libera antes del cierre del Show LED.",
           preguntas: [
-            "¿Cuál es la dirección del evento Deluxe Corporativo?",
-            "¿A qué hora termina el evento (duración aproximada)?"
+            "¿Cuál es la dirección del Deluxe adultos?",
+            "¿A qué hora termina?"
           ]
         },
         {
           id: 2,
+          prioridad: "alta",
+          eventoId: null,
+          paquete: "Cofar (Sáb 23 y Dom 24) + Hello Kitty (Mar 19)",
+          dia: "Martes 19 · Sábado 23 · Domingo 24",
+          falta: [
+            { campo: "Hora", detalle: "Ninguno tiene hora definida" },
+            { campo: "Dirección", detalle: "Sin dirección en ninguno" },
+            { campo: "HRL", detalle: "No definido — ¿implica Torre + Humo?" }
+          ],
+          impacto: "Sin horas no se puede confirmar si los 3 eventos del domingo son simultáneos. Si HRL implica Torre + Humo, el mínimo de torres sube.",
+          preguntas: [
+            "¿A qué hora son los eventos del martes, sábado y domingo?",
+            "¿HRL implica Torre + Humo en los Cofar?",
+            "¿Cuáles son las direcciones?"
+          ]
+        },
+        {
+          id: 3,
+          prioridad: "media",
+          eventoId: 9,
+          paquete: "Toys Story",
+          dia: "Domingo 24 mayo",
+          falta: [
+            { campo: "Sin información", detalle: "No se indicó paquete, hora ni dirección" }
+          ],
+          impacto: "Sin datos no se puede asignar equipo ni confirmar simultaneidad con los otros dos eventos del domingo.",
+          preguntas: [
+            "¿Qué paquete es Toys Story?",
+            "¿A qué hora y dónde?"
+          ]
+        },
+        {
+          id: 4,
           prioridad: "alta",
           eventoId: 4,
           paquete: "Producción Sonido — Iyambae",
