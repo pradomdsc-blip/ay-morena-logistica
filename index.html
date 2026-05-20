@@ -88,92 +88,55 @@
        DATOS DE LA SEMANA — ACTUALIZAR CADA LUNES
     ============================================================== */
     const SEMANA = {
-      semana: "15–17 mayo",
-      updatedAt: "Lunes 20 mayo · 09:00",
+      semana: "21–22 mayo",
+      updatedAt: "Martes 20 mayo · 10:00",
       kpis: {
-        diaPico: { dia: "Viernes", eventos: 3 },
-        minimoEquipos: { amplificacion: 2, torreHumo: 1 },
-        porConfirmar: 2
+        diaPico: { dia: "Jueves", eventos: 2 },
+        minimoEquipos: { amplificacion: 2, torreHumo: 2 },
+        porConfirmar: 1
       },
       dias: [
         {
-          dia: "Viernes",
-          fecha: "15 mayo",
+          dia: "Jueves",
+          fecha: "21 mayo",
           esPico: true,
           eventos: [
             {
               id: 1,
               hora: "15:00",
-              duracion: "3 HRS",
-              paquete: "HRL Infantil",
-              status: "confirmado",
+              duracion: null,
+              paquete: "Deluxe Corporativo",
+              status: "pendiente-info",
               equipos: ["Amplificación", "Torre + Humo"],
-              notas: null,
-              operador: "Nico"
+              notas: "Empresa: Bruna Álvarez · Sin dirección",
+              operador: "Bruno / Matías"
             },
             {
               id: 2,
-              hora: "17:00",
-              duracion: "3 HRS",
-              paquete: "Básico",
-              status: "confirmado",
-              equipos: ["Amplificación"],
-              notas: null,
-              operador: "Leo"
-            },
-            {
-              id: 3,
-              hora: null,
-              duracion: null,
-              paquete: "HRL Adultos",
-              status: "pendiente-info",
-              equipos: null,
-              notas: null,
-              operador: null
-            }
-          ]
-        },
-        {
-          dia: "Sábado",
-          fecha: "16 mayo",
-          esPico: false,
-          eventos: [
-            {
-              id: 4,
-              hora: "19:30",
-              duracion: "3 HRS",
-              paquete: "Recepción de Personajes",
-              status: "confirmado",
-              equipos: ["Amplificación"],
-              notas: null,
-              operador: "Nico"
-            }
-          ]
-        },
-        {
-          dia: "Domingo",
-          fecha: "17 mayo",
-          esPico: false,
-          eventos: [
-            {
-              id: 5,
               hora: "16:00",
               duracion: "3 HRS",
-              paquete: "HRL Infantil",
+              paquete: "Show LED — Bluey",
               status: "confirmado",
               equipos: ["Amplificación", "Torre + Humo"],
-              notas: null,
-              operador: "Leo"
-            },
+              notas: "Botarga Bluey · Parque Galáctic",
+              operador: "Rilver / Leo / Mathias"
+            }
+          ]
+        },
+        {
+          dia: "Viernes",
+          fecha: "22 mayo",
+          esPico: false,
+          eventos: [
             {
-              id: 6,
-              hora: null,
-              duracion: "3 HRS",
-              paquete: "Básico",
-              status: "hora-pendiente",
+              id: 3,
+              hora: "09:00",
+              duracion: "8 HRS",
+              paquete: "Corporativo — Grupo Peso",
+              status: "confirmado",
               equipos: ["Amplificación"],
-              notas: null,
-              operador: null
+              notas: "Video Resumen (Diego) · Pasando Okinawa",
+              operador: "Edgar / Daniel / Susan"
             }
           ]
         }
@@ -182,33 +145,17 @@
         {
           id: 1,
           prioridad: "alta",
-          eventoId: 3,
-          paquete: "HRL Adultos",
-          dia: "Viernes 15 mayo",
+          eventoId: 1,
+          paquete: "Deluxe Corporativo",
+          dia: "Jueves 21 mayo",
           falta: [
-            { campo: "Paquete", detalle: "No se confirmó tipo de HRL" },
-            { campo: "Horario", detalle: "Sin hora asignada" },
-            { campo: "Equipos", detalle: "Depende del paquete final" }
+            { campo: "Dirección", detalle: "No figura en la convocatoria" },
+            { campo: "Duración", detalle: "No especificada — afecta rotación de equipos" }
           ],
-          impacto: "Si cae en turno tarde (17:00–20:00), se superpone con evento confirmado del viernes — necesita equipo propio.",
+          impacto: "Sin dirección no se puede planificar traslado. Sin duración no se confirma si el equipo libera antes del cierre del Show LED (19:00).",
           preguntas: [
-            "¿Qué paquete tomaron — HRL Adultos estándar o con LED?",
-            "¿A qué hora empieza el evento?",
-            "¿Confirman que necesitan Torre + Humo?"
-          ]
-        },
-        {
-          id: 2,
-          prioridad: "media",
-          eventoId: 6,
-          paquete: "Básico",
-          dia: "Domingo 17 mayo",
-          falta: [
-            { campo: "Horario", detalle: "Sin hora confirmada" }
-          ],
-          impacto: "Si es antes de las 17:00, el equipo puede rotar desde el HRL Infantil. Si es posterior, necesita equipo separado.",
-          preguntas: [
-            "¿A qué hora arranca el evento del domingo?"
+            "¿Cuál es la dirección del evento Deluxe Corporativo?",
+            "¿A qué hora termina el evento (duración aproximada)?"
           ]
         }
       ]
